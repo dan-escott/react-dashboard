@@ -1,0 +1,10 @@
+.metrics {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0.2rem 0;
+}
+
+.metrics .metric {
+  font-size: 1.7rem;
+  width: 50%;
+}
