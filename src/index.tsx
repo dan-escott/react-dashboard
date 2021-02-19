@@ -1,3 +1,3 @@
-export { Dashboard } from './components/Dashboard';
-export { Tile } from './components/Tile';
-export { TileStatus } from './components/TileStatus';
+export { Dashboard } from './components/Dashboard'
+export { Tile } from './components/Tile'
+export { TileStatus } from './components/TileStatus'
