@@ -15,15 +15,22 @@ npm install --save @dan-escott/react-dashboard
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from '@dan-escott/react-dashboard'
+import { Dashboard, Tile } from '@dan-escott/react-dashboard'
 import '@dan-escott/react-dashboard/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <Dashboard>
+      <Tile ... />
+      <Tile ... />
+    </Dashboard>
   }
 }
 ```
+
+## Examples
+
+https://dan-escott.github.io/react-dashboard/
 
 ## License
 
