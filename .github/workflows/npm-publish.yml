@@ -36,7 +36,7 @@ jobs:
           git remote set-url origin https://${{secrets.GH_PAGES_TOKEN}}@github.com/${{secrets.REPO}}
           npm run deploy
 
-  publish-npm:
+  release:
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -46,11 +46,8 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
 
-      - name: Check version changes
-        uses: EndBug/version-check@v1.0.0
-        id: check
-
-      - run: npm ci
-      - run: npm publish
+      - name: Release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: npx semantic-release
