@@ -3,32 +3,57 @@ import { Dashboard, Tile, TileStatus } from '@dan-escott/react-dashboard'
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import '@dan-escott/react-dashboard/dist/index.css'
 
+const getDataSeriesA = () => [
+  {x: '2021-01-01T00:00', y: 0},
+  {x: '2021-01-02T00:00', y: 60},
+  {x: '2021-01-03T00:00', y: 20},
+  {x: '2021-01-04T00:00', y: 50},
+  {x: '2021-01-05T00:00', y: 100}
+]
+
+const getDataSeriesB = () => [
+  {x: '2021-01-01T00:00', y: 10},
+  {x: '2021-01-02T00:00', y: 30},
+  {x: '2021-01-03T00:00', y: 50},
+  {x: '2021-01-04T00:00', y: 20},
+  {x: '2021-01-05T00:00', y: 40}
+]
+
 const App = () => {
   return (
     <div className="example-container">
       <Dashboard>
 
-        <Tile title="Tile 1"
+        <Tile title="Charts on same scale"
           metrics={[
             { id: 'kpi1', value: 1, uom: '%', icon: faArrowUp},
             { id: 'kpi2', value: 1, uom: '%', icon: faArrowDown}
           ]}
-          sparklineData={
-            { series: [
-              {x: '2021-01-01T00:00', y: 0},
-              {x: '2021-01-02T00:00', y: 60},
-              {x: '2021-01-03T00:00', y: 20},
-              {x: '2021-01-04T00:00', y: 50},
-              {x: '2021-01-05T00:00', y: 100}
-            ], min: 0, max: 100 }}
+          sparkline={{
+            series: [
+              { data: getDataSeriesA(), min: 0, max: 1 },
+              { data: getDataSeriesB(), min: 0, max: 1 }]
+            }}
           />
 
-        <Tile title="Tile 2" metrics={[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]} sparklineData={{ series: [], min: 0, max: 100 }} ></Tile>
-        <Tile title="Tile 3" metrics={[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]} sparklineData={{ series: [], min: 0, max: 100 }} ></Tile>
-        <Tile title="Tile 4" metrics={[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]} sparklineData={{ series: [], min: 0, max: 100 }} ></Tile>
-        <Tile title="Tile 5" metrics={[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]} sparklineData={{ series: [], min: 0, max: 100 }} ></Tile>
-        <Tile title="Tile 6" metrics={[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]} status={TileStatus.Stale} sparklineData={{ series: [], min: 0, max: 100 }} ></Tile>
-        <Tile title="Tile 7" metrics={[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]} sparklineData={{ series: [], min: 0, max: 100 }} ></Tile>
+        <Tile title="Charts on independent scales"
+          metrics={[
+            { id: 'kpi1', value: 1, uom: '%', icon: faArrowUp},
+            { id: 'kpi2', value: 1, uom: '%', icon: faArrowDown}
+          ]}
+          sparkline={{
+            independentAxes: true,
+            series: [
+              { data: getDataSeriesA(), min: 0, max: 1 },
+              { data: getDataSeriesB(), min: 0, max: 1 }]
+            }}
+          />
+
+        <Tile title="Tile" metrics={[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}></Tile>
+        <Tile title="Tile" metrics={[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}></Tile>
+        <Tile title="Tile" metrics={[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}></Tile>
+        <Tile title="Tile with stale data" metrics={[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]} status={TileStatus.Stale}></Tile>
+        <Tile title="Tile" metrics={[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}></Tile>
 
       </Dashboard>
     </div>
