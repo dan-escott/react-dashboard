@@ -4,6 +4,6 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect'
 
-jest.mock('../../node_modules/react-chartjs-2', () => ({
+jest.mock('react-chartjs-2', () => ({
   Scatter: () => null
 }))
