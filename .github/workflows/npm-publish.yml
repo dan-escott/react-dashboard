@@ -22,7 +22,7 @@ jobs:
 
       - name: Example tests
         run: npm test
-          working-directory: example
+        working-directory: example
 
   gh-pages:
     needs: test
