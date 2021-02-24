@@ -10,10 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: bahmutov/npm-install@v1
         with:
           node-version: 12
-      - uses: bahmutov/npm-install@v1
       - run: npm test
 
   gh-pages:
@@ -22,10 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: bahmutov/npm-install@v1
         with:
           node-version: 12
-      - uses: bahmutov/npm-install@v1
       - run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
@@ -37,11 +35,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: bahmutov/npm-install@v1
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - uses: bahmutov/npm-install@v1
 
       - name: Release
         env:
