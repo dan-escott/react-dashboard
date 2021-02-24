@@ -49,7 +49,20 @@ const App = () => {
             }}
           />
 
-        <Tile title="Tile" metrics={{ data:[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}}></Tile>
+        <Tile title="Charts with fixed timespan"
+          metrics={{ data: [
+            { id: 'kpi1', value: 1, uom: '%', icon: faArrowUp},
+            { id: 'kpi2', value: 1, uom: '%', icon: faArrowDown}
+          ]}}
+          sparkline={{
+            series: [
+              { data: getDataSeriesA(), min: 0, max: 1 },
+              { data: getDataSeriesB(), min: 0, max: 1 }],
+            xmin: new Date(new Date(getDataSeriesA()[0].x).valueOf() - 1000 * 60 * 60 *24),
+            xmax: new Date(new Date(getDataSeriesA()[getDataSeriesA().length - 1].x).valueOf() + 1000 * 60 * 60 *24)
+            }}
+          />
+
         <Tile title="Tile" metrics={{ data:[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}}></Tile>
         <Tile title="Tile" metrics={{ data:[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}}></Tile>
         <Tile title="Tile with stale data" metrics={{ data: [{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}} status={TileStatus.Stale}></Tile>

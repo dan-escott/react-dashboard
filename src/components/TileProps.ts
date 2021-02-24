@@ -11,5 +11,7 @@ export type TileProps = {
   sparkline?: {
     series: SparkLineSeries[]
     independentAxes?: boolean
+    xmin?: Date
+    xmax?: Date
   }
 }

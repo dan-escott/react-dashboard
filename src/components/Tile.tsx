@@ -71,6 +71,8 @@ export const Tile = (props: TileProps) => {
             display: false
           },
           time: {
+            min: props.sparkline ? props.sparkline.xmin : undefined,
+            max: props.sparkline ? props.sparkline.xmax : undefined,
             unit: 'second'
           }
         }
