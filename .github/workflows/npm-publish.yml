@@ -13,7 +13,16 @@ jobs:
       - uses: bahmutov/npm-install@v1
         with:
           node-version: 12
-      - run: npm test
+          working-directory: | 
+            .
+            example
+
+      - name: Package tests
+        run: npm test
+
+      - name: Example tests
+        run: npm test
+          working-directory: example
 
   gh-pages:
     needs: test
