@@ -90,6 +90,16 @@ export const Tile = (props: TileProps) => {
     }
   }
 
+  const metricsElement = props.metrics ? (
+    <div className={metricStyles.metrics}>
+      {props.metrics.data.map((metric) => (
+        <Metric key={metric.id} metric={metric} />
+      ))}
+    </div>
+  ) : (
+    <div />
+  )
+
   const sparklineElement =
     data.datasets.length > 0 ? (
       <div className={styles.sparkline}>
@@ -104,11 +114,7 @@ export const Tile = (props: TileProps) => {
       className={`${styles.tile} ${props.status ? styles[props.status] : ''}`}
     >
       <div className={styles.title}>{props.title}</div>
-      <div className={metricStyles.metrics}>
-        {props.metrics.map((metric) => (
-          <Metric key={metric.id} metric={metric} />
-        ))}
-      </div>
+      {metricsElement}
       {sparklineElement}
     </div>
   )

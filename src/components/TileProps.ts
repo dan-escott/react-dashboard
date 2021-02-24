@@ -4,7 +4,9 @@ import { TileStatus } from './TileStatus'
 
 export type TileProps = {
   title: string
-  metrics: MetricProps[]
+  metrics?: {
+    data: MetricProps[]
+  }
   status?: TileStatus
   sparkline?: {
     series: SparkLineSeries[]
