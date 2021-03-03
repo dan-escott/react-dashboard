@@ -34,6 +34,7 @@ export const Tile = (props: TileProps) => {
       pointHoverBorderColor: color,
       borderDash: dashes[i],
       yAxisID: sparkline.independentAxes ? i : 0,
+      showLine: true,
       data: series.data
     }))
   }
@@ -41,7 +42,6 @@ export const Tile = (props: TileProps) => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    showLines: true,
     legend: {
       display: false
     },
@@ -70,10 +70,9 @@ export const Tile = (props: TileProps) => {
           gridLines: {
             display: false
           },
-          time: {
+          ticks: {
             min: props.sparkline ? props.sparkline.xmin : undefined,
             max: props.sparkline ? props.sparkline.xmax : undefined,
-            unit: 'second'
           }
         }
       ],
