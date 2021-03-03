@@ -72,7 +72,7 @@ export const Tile = (props: TileProps) => {
           },
           ticks: {
             min: props.sparkline ? props.sparkline.xmin : undefined,
-            max: props.sparkline ? props.sparkline.xmax : undefined,
+            max: props.sparkline ? props.sparkline.xmax : undefined
           }
         }
       ],
