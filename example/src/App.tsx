@@ -4,19 +4,19 @@ import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import '@dan-escott/react-dashboard/dist/index.css'
 
 const getDataSeriesA = () => [
-  {x: '2021-01-01T00:00', y: 0},
-  {x: '2021-01-02T00:00', y: 60},
-  {x: '2021-01-03T00:00', y: 20},
-  {x: '2021-01-04T00:00', y: 50},
-  {x: '2021-01-05T00:00', y: 100}
+  {x: new Date('2021-01-01T00:00'), y: 0},
+  {x: new Date('2021-01-02T00:00'), y: 60},
+  {x: new Date('2021-01-03T00:00'), y: 20},
+  {x: new Date('2021-01-04T00:00'), y: 50},
+  {x: new Date('2021-01-05T00:00'), y: 100}
 ]
 
 const getDataSeriesB = () => [
-  {x: '2021-01-01T00:00', y: 10},
-  {x: '2021-01-02T00:00', y: 30},
-  {x: '2021-01-03T00:00', y: 50},
-  {x: '2021-01-04T00:00', y: 20},
-  {x: '2021-01-05T00:00', y: 40}
+  {x: new Date('2021-01-01T00:00'), y: 10},
+  {x: new Date('2021-01-02T00:00'), y: 30},
+  {x: new Date('2021-01-03T00:00'), y: 50},
+  {x: new Date('2021-01-04T00:00'), y: 20},
+  {x: new Date('2021-01-05T00:00'), y: 40}
 ]
 
 const App = () => {
