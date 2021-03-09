@@ -1,4 +1,3 @@
-import React from 'react'
 import { Dashboard, Tile, TileStatus } from '@dan-escott/react-dashboard'
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import '@dan-escott/react-dashboard/dist/index.css'
