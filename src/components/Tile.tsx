@@ -116,9 +116,15 @@ export const Tile = (props: TileProps) => {
       className={`${styles.tile} ${props.status ? styles[props.status] : ''}`}
     >
       <div className={styles.title}>{props.title}</div>
-      <div className={styles.icons}>{props.icons?.map(icon => 
-        <FontAwesomeIcon className={styles.icon} icon={icon} />
-      )}</div>
+      <div className={styles.icons}>
+        {props.icons?.map((icon) => (
+          <FontAwesomeIcon
+            key={icon.toString()}
+            className={styles.icon}
+            icon={icon}
+          />
+        ))}
+      </div>
       {metricsElement}
       {sparklineElement}
     </div>
