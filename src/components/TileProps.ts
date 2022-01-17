@@ -15,5 +15,5 @@ export type TileProps = {
     xmin?: Date
     xmax?: Date
   }
-  icons?: IconProp[];
+  icons?: IconProp[]
 }
