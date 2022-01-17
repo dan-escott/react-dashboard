@@ -1,6 +1,7 @@
 import { SparkLineSeries } from './SparkLineSeries'
 import { MetricProps } from './MetricProps'
 import { TileStatus } from './TileStatus'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 export type TileProps = {
   title: string
@@ -14,4 +15,5 @@ export type TileProps = {
     xmin?: Date
     xmax?: Date
   }
+  icons?: IconProp[];
 }

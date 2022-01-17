@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dashboard, Tile, TileStatus } from '@dan-escott/react-dashboard'
-import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUp, faArrowDown, faBatteryHalf, faSignal } from '@fortawesome/free-solid-svg-icons'
 import '@dan-escott/react-dashboard/dist/index.css'
 
 const getDataSeriesA = () => [
@@ -63,6 +63,7 @@ const App = () => {
           />
 
         <Tile title="Tile" metrics={{ data:[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}}></Tile>
+        <Tile title="Tile with icons" metrics={basicMetrics} sparkline={basicSparklines} icons={[faBatteryHalf, faSignal]}/>
         <Tile title="Tile with stale data" metrics={basicMetrics} sparkline={basicSparklines} status={TileStatus.Stale}></Tile>
         <Tile title="Tile with warning" metrics={basicMetrics} sparkline={basicSparklines} status={TileStatus.Warning}></Tile>
         <Tile title="Tile with error" metrics={basicMetrics} sparkline={basicSparklines} status={TileStatus.Error}></Tile>
