@@ -11,6 +11,14 @@
   background-color: #99A;
 }
 
+.warning {
+  background-color: #dfab10;
+}
+
+.error {
+  background-color: #dc3545;
+}
+
 .tile .title {
   margin: 0;
   padding: 0;

@@ -19,28 +19,30 @@ const getDataSeriesB = () => [
   {x: new Date('2021-01-05T00:00'), y: 40}
 ]
 
+const basicSparklines = { series: [
+  { data: getDataSeriesA(), min: 0, max: 1 },
+  { data: getDataSeriesB(), min: 0, max: 1 }
+]}
+
+const basicMetrics = { data: [
+  { id: 'kpi1', value: 1, uom: '%', icon: faArrowUp},
+  { id: 'kpi2', value: 1, uom: '%', icon: faArrowDown}
+]}
+  
+
+
 const App = () => {
   return (
     <div className="example-container">
       <Dashboard>
 
         <Tile title="Charts on same scale"
-          metrics={{ data: [
-            { id: 'kpi1', value: 1, uom: '%', icon: faArrowUp},
-            { id: 'kpi2', value: 1, uom: '%', icon: faArrowDown}
-          ]}}
-          sparkline={{
-            series: [
-              { data: getDataSeriesA(), min: 0, max: 1 },
-              { data: getDataSeriesB(), min: 0, max: 1 }]
-            }}
+          metrics={basicMetrics}
+          sparkline={basicSparklines}
           />
 
         <Tile title="Charts on independent scales"
-          metrics={{ data: [
-            { id: 'kpi1', value: 1, uom: '%', icon: faArrowUp},
-            { id: 'kpi2', value: 1, uom: '%', icon: faArrowDown}
-          ]}}
+          metrics={basicMetrics}
           sparkline={{
             independentAxes: true,
             series: [
@@ -50,10 +52,7 @@ const App = () => {
           />
 
         <Tile title="Charts with fixed timespan"
-          metrics={{ data: [
-            { id: 'kpi1', value: 1, uom: '%', icon: faArrowUp},
-            { id: 'kpi2', value: 1, uom: '%', icon: faArrowDown}
-          ]}}
+          metrics={basicMetrics}
           sparkline={{
             series: [
               { data: getDataSeriesA(), min: 0, max: 1 },
@@ -64,9 +63,9 @@ const App = () => {
           />
 
         <Tile title="Tile" metrics={{ data:[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}}></Tile>
-        <Tile title="Tile" metrics={{ data:[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}}></Tile>
-        <Tile title="Tile with stale data" metrics={{ data: [{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}} status={TileStatus.Stale}></Tile>
-        <Tile title="Tile" metrics={{ data:[{ id: 'kpi1', value: 1, uom: '%', icon: faArrowUp}]}}></Tile>
+        <Tile title="Tile with stale data" metrics={basicMetrics} sparkline={basicSparklines} status={TileStatus.Stale}></Tile>
+        <Tile title="Tile with warning" metrics={basicMetrics} sparkline={basicSparklines} status={TileStatus.Warning}></Tile>
+        <Tile title="Tile with error" metrics={basicMetrics} sparkline={basicSparklines} status={TileStatus.Error}></Tile>
 
       </Dashboard>
     </div>
