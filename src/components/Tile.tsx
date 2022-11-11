@@ -117,9 +117,9 @@ export const Tile = (props: TileProps): JSX.Element => {
     >
       <div className={styles.title}>{props.title}</div>
       <div className={styles.icons}>
-        {props.icons?.map((icon) => (
+        {props.icons?.map((icon, index) => (
           <FontAwesomeIcon
-            key={icon.toString()}
+            key={index}
             className={styles.icon}
             icon={icon}
           />
