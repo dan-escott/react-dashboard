@@ -21,12 +21,12 @@ jobs:
       - name: Install
         run: npm install
 
-      - name: Package tests
-        run: npm test
-
       - name: Install example
         run: npm install
         working-directory: example
+
+      - name: Package tests
+        run: npm test
 
       - name: Example tests
         run: npm test
