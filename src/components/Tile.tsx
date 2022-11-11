@@ -4,6 +4,7 @@ import styles from './Tile.css'
 import metricStyles from './Metric.css'
 import { Metric } from './Metric'
 import { TileProps } from './TileProps'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Tile = (props: TileProps) => {
   const color = 'rgba(255, 255, 255, 0.3)'
@@ -115,6 +116,15 @@ export const Tile = (props: TileProps) => {
       className={`${styles.tile} ${props.status ? styles[props.status] : ''}`}
     >
       <div className={styles.title}>{props.title}</div>
+      <div className={styles.icons}>
+        {props.icons?.map((icon) => (
+          <FontAwesomeIcon
+            key={icon.toString()}
+            className={styles.icon}
+            icon={icon}
+          />
+        ))}
+      </div>
       {metricsElement}
       {sparklineElement}
     </div>

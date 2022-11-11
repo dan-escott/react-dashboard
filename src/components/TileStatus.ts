@@ -1,3 +1,5 @@
 export enum TileStatus {
-  Stale = 'stale'
+  Stale = 'stale',
+  Warning = 'warning',
+  Error = 'error'
 }

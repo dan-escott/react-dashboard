@@ -5,16 +5,39 @@
   flex: auto;
   margin: 1rem;
   padding: 1.25rem;
+  position: relative;
 }
 
 .stale {
   background-color: #99A;
 }
 
+.warning {
+  background-color: #dfab10;
+}
+
+.error {
+  background-color: #dc3545;
+}
+
 .tile .title {
   margin: 0;
   padding: 0;
   font-size: 1.3rem;
+}
+
+.icons {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 0.2rem;
+}
+
+.icons .icon {
+  margin-right: 0.4rem;
 }
 
 .sparkline {
