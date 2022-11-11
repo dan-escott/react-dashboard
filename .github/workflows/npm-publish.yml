@@ -13,12 +13,20 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: npm
           working-directory: | 
             .
             example
 
+      - name: Install
+        run: npm install
+
       - name: Package tests
         run: npm test
+
+      - name: Install example
+        run: npm install
+        working-directory: example
 
       - name: Example tests
         run: npm test
@@ -33,6 +41,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: npm
+
+      - name: Install
+        run: npm install
+
       - run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
@@ -47,7 +60,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: npm
           registry-url: https://registry.npmjs.org/
+
+      - name: Install
+        run: npm install
 
       - name: Release
         env:
