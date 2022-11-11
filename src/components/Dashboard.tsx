@@ -6,7 +6,7 @@ export const Dashboard = ({
   children
 }: {
   children: React.ReactElement<typeof Tile>[]
-}) => {
+}): JSX.Element => {
   return (
     <div className={styles.dashboard}>{children.map((child) => child)}</div>
   )

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { MetricProps } from './MetricProps'
 import styles from './Metric.css'
 
-export const Metric = (props: { metric: MetricProps }) => {
+export const Metric = (props: { metric: MetricProps }): JSX.Element => {
   const fontAwesomeIcon = <FontAwesomeIcon icon={props.metric.icon} />
   const value = props.metric.formatter
     ? props.metric.formatter(props.metric.value)

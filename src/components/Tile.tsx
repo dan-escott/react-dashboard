@@ -6,7 +6,7 @@ import { Metric } from './Metric'
 import { TileProps } from './TileProps'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const Tile = (props: TileProps) => {
+export const Tile = (props: TileProps): JSX.Element => {
   const color = 'rgba(255, 255, 255, 0.3)'
 
   const dashes = [
