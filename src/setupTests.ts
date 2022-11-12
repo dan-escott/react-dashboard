@@ -3,7 +3,10 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect'
+import failOnConsole from 'jest-fail-on-console'
 
 jest.mock('react-chartjs-2', () => ({
   Scatter: () => null
 }))
+
+failOnConsole()
