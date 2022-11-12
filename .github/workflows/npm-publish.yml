@@ -19,11 +19,15 @@ jobs:
             example
 
       - name: Install
-        run: npm install
+        run: |
+          npm install --no-audit
+          npm audit --omit=dev
 
       - name: Install example
-        run: npm install
         working-directory: example
+        run: |
+          npm install --no-audit
+          npm audit --omit=dev
 
       - name: Package tests
         run: npm test
@@ -44,7 +48,9 @@ jobs:
           cache: npm
 
       - name: Install
-        run: npm install
+        run: |
+          npm install --no-audit
+          npm audit --omit=dev
 
       - run: |
           git config --global user.name 'github-actions[bot]'
@@ -63,7 +69,9 @@ jobs:
           cache: npm
 
       - name: Install
-        run: npm install
+        run: |
+          npm install --no-audit
+          npm audit --omit=dev
 
       - name: Release
         env:
